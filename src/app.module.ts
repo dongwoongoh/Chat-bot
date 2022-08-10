@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -7,11 +8,12 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
       envFilePath:
         process.env.NODE_ENV === 'production'
-          ? '.production.env'
+          ? '.env.production'
           : process.env.NODE_ENV === 'development'
-          ? '.development.env'
-          : '.test.env',
+          ? '.env.development'
+          : '.env.test',
     }),
+    UsersModule,
   ],
   controllers: [],
   providers: [],
