@@ -10,6 +10,10 @@ export class UsersSignUpInputDto {
   @IsNotEmpty()
   password: string;
 
+  @IsString()
+  @IsNotEmpty()
+  confirmPassword: string;
+
   @IsBoolean()
   alram: boolean;
 }
